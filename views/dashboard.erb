@@ -22,20 +22,16 @@
         <td><%= job.link %></td>
         <td><%= job.location %></td>
         <td><%= job.date %></td>
-        <td><%= glassdoor_results[index].overallRating %></td>
-        <td><%= glassdoor_results[index].cultureAndValuesRating %></td>
-        <td><%= glassdoor_results[index].compensationAndBenefitsRating %></td>
-        <td><%= glassdoor_results[index].pros %></td>
-        <td><%= glassdoor_results[index].cons %></td>
+
+        <% unless glassdoor_results[index].nil? %>
+          <td><%= glassdoor_results[index].overallRating %></td>
+          <td><%= glassdoor_results[index].cultureAndValuesRating %></td>
+          <td><%= glassdoor_results[index].compensationAndBenefitsRating %></td>
+          <td><%= glassdoor_results[index].pros %></td>
+          <td><%= glassdoor_results[index].cons %></td>
+        <% end %>
       </tr>
     <% end %>
 
-<!--     <% glassdoor_results.each do |result| %>
-      <h4><%= result.overallRating %></h4>
-      <h4><%= result.cultureAndValuesRating %></h4>
-      <h4><%= result.compensationAndBenefitsRating %></h4>
-      <h4><%= result.pros %></h4>
-      <h4><%= result.cons %></h4>
-    <% end %> -->
   </tbody>
 </table>

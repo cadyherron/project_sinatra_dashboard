@@ -22,11 +22,11 @@ class CompanyProfiler
       stuff_we_want = @glassdoor_info["response"]["employers"][0]
       @company = Company.new(overallRating: stuff_we_want["overallRating"], cultureAndValuesRating: stuff_we_want["cultureAndValuesRating"], compensationAndBenefitsRating: stuff_we_want["compensationAndBenefitsRating"], pros: "none", cons: "none")
       # pp stuff_we_want
-    end
 
-    if stuff_we_want["featuredReview"]
-      @company.pros = stuff_we_want["featuredReview"]["pros"][0..200]
-      @company.cons = stuff_we_want["featuredReview"]["cons"][0..200]
+      if stuff_we_want["featuredReview"]
+        @company.pros = stuff_we_want["featuredReview"]["pros"][0..200]
+        @company.cons = stuff_we_want["featuredReview"]["cons"][0..200]
+      end
     end
   end
 
